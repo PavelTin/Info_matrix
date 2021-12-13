@@ -1,0 +1,60 @@
+class Matrix_sq:
+    def __init__(self):
+        print("Введите размер матрицы")
+        self.size = int(input())
+        size = self.get_size()
+        print("Введите матрицу")
+        arr = [[0] * size for i in range(size)]
+        for i in range(size):
+            arr[i] = list(map(int, input().split()))
+        self.arr = arr
+
+    def get_size(self):
+        return self.size
+
+    def get_arr(self):
+        return self.arr
+
+    def get_line(self, i):
+        arr = self.get_arr()
+        return arr[i]
+
+    def get_column(self, j):
+        arr = self.get_arr()
+        column = []
+        size = self.get_size()
+        for i in range(size):
+            column.append(arr[i][j])
+        return column
+
+    def set_line(self, i, line):
+        self.arr[i] = line
+        return self.get_arr()
+
+    def operation_decorator(method):
+        def wrapper(self, matrix2):
+            size1 = self.get_size()
+            size2 = matrix2.get_size()
+
+            return method
+        return wrapper
+
+    @operation_decorator
+    def summation(self, matrix2):
+        size1 = self.get_size()
+        size2 = matrix2.get_size()
+        arr1 = self.get_arr()
+        arr2 = matrix2.get_arr()
+        matrix_final = [[0] * size1 for i in range(size1)]
+        for i in range(size1):
+            for j in range(size2):
+                matrix_final[i][j] = arr1[i][j] + arr2[i][j]
+        return matrix_final
+
+
+matrix1 = Matrix_sq()
+matrix2 = Matrix_sq()
+print(matrix1.summation(matrix2))
+
+#print(matrix1.get_column(1))
+#print(matrix1.set_line(1, [1, 2, 3]))
