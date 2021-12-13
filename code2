@@ -44,7 +44,7 @@ class Matrix_sq:
 
 
     @operation_decorator
-    def summation(self, matrix2):
+    def __add_(self, matrix2):
         size1 = self.get_size()
         size2 = matrix2.get_size()
         arr1 = self.get_arr()
@@ -56,7 +56,7 @@ class Matrix_sq:
         return matrix_final
 
     @operation_decorator
-    def multiplication(self, matrix2):
+    def __mul__(self, matrix2):
         def line_column(self, matrix2, i, j):
             line = self.get_line(i)
             column = matrix2.get_column(j)
