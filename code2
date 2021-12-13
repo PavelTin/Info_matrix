@@ -44,7 +44,7 @@ class Matrix_sq:
 
 
     @operation_decorator
-    def __add_(self, matrix2):
+    def __add__(self, matrix2):
         size1 = self.get_size()
         size2 = matrix2.get_size()
         arr1 = self.get_arr()
